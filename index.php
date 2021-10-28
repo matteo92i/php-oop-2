@@ -1,16 +1,44 @@
 <?php
-class Shopping {
+class Prodotto {
   public $categoria;
-  public $accessori;
-  public $scarpe;
-  public $tshirt;
-  public $maglioni;
-  public $pantaloni;
-  public $cappelli;
-  public $intimo;
-  
+  public $marca;
+  public $descrizione;
+  public $prezzo;
+  public $quantità;
+
+
+  public function __construct($categoria, $marca, $descrizione, $prezzo, $quantità){
+    $this->categoria = $categoria; 
+    $this->marca = $marca; 
+    $this->descrizione = $descrizione; 
+    $this->prezzo = $prezzo; 
+    $this->quantità = $quantità; 
+  }
+
+  public function addQuantità($quantità)
+  {
+    $this->quantità +=$quantità;
+  }
 }
+
+class Scarpa extends Prodotto {
+  public $colore;
+  public $misura;
+  public $edizionelimitata;
+
+  public function __construct($colore, $misura, $edizionelimitata,$categoria, $marca, $descrizione, $prezzo, $quantità)
+  {
+    $this->colore = $colore;
+    $this->misura = $misura;
+    $this->edizionelimitata = $edizionelimitata;
+    parent::__construct($categoria, $marca, $descrizione, $prezzo, $quantità);
+  }
+}
+
+
+  
 ?>
+
 
 <!DOCTYPE html>
 <html lang="<?php echo $language; ?>">
