@@ -17,6 +17,7 @@ class Prodotto {
 
   public function addQuantità($quantità)
   {
+   
     $this->quantità +=$quantità;
   }
 }
@@ -47,16 +48,22 @@ class Vestito extends Prodotto {
     parent::__construct($categoria, $marca, $descrizione, $prezzo, $quantità);
   }
 }
-class Carrello extends Prodotto {
+class Carrello {
 
-  public $consegna;
+  public $numeroOrdini;
+  public $listaProdotti;
   public $totale;
 
-  public function __construct($taglia, $vestibilità, $categoria, $marca, $descrizione, $prezzo, $quantità)
+  public function __construct($numeroOrdini, $listaProdotti, $totale)
   {
-    $this->consegna =$consegna;
+    $this->numeroOrdini =$numeroOrdini;
+    $this->listaProdotti =$listaProdotti;
     $this->totale =$totale;
-    parent::__construct($categoria, $marca, $descrizione, $prezzo, $quantità);
+    
+  }
+
+  public function prezzoTotale(){
+
   }
 }
 class Utente {
@@ -72,19 +79,20 @@ class Utente {
     $this->indirizzo =$indirizzo;
     $this->email =$email;
     $this->data =$data;
+    $this ->cartaDiCredito = $cartaDiCredtito = [];
   }
 }
 
-class CartaCredito extends Utente{
+class CartaCredito {
   public $numeroCarta;
   public $cvv;
   public $scadenza;
 
-  public function __construct($numeroCarta, $cvv, $scadenza, $nome, $cognome, $indirizzo, $email, $data){
+  public function __construct($numeroCarta, $cvv, $scadenza){
     $this->numeroCarta =$numeroCarta;
     $this->cvv =$cvv;
     $this->scadenza =$scadenza;
-    parent::__construct($nome, $cognome, $indirizzo, $email, $data);
+    
 
   }
   public function addCartaCredito($numeroCarta)
